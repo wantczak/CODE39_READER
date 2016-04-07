@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="450.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code39.controller.GuiViewController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Plik">
+            <items>
+              <MenuItem fx:id="menuItemOpen" mnemonicParsing="false" text="Otwórz" />
+                  <MenuItem fx:id="menuItemClose" mnemonicParsing="false" text="Zamknij" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="O mnie">
+               <items>
+                  <MenuItem fx:id="oMnieMenu" mnemonicParsing="false" text="O mnie" />
+               </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <top>
+            <VBox alignment="TOP_CENTER" prefHeight="75.0" prefWidth="661.0" spacing="10.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label text="Wczytany BARCODE [CODE 39]:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="imgBarCode" fitHeight="50.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label text="Obraz po binaryzacji">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="imgBarCodeBin" fitHeight="50.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </VBox>
+         </top>
+         <center>
+            <GridPane prefHeight="314.0" prefWidth="297.0" BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="316.0" minWidth="10.0" prefWidth="295.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="527.0" minWidth="10.0" prefWidth="385.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="110.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Odczytane znaki:" />
+                  <Label text="Suma kontrolna odczytana:" GridPane.rowIndex="2" />
+                  <TextField fx:id="readedCodeTextField" prefHeight="25.0" prefWidth="237.0" GridPane.columnIndex="1" />
+                  <TextField fx:id="checkSumReaded" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label text="Suma kontrolna obliczona:" GridPane.rowIndex="3" />
+                  <TextField fx:id="checkSumCalculated" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label text="Znaki pomiedzy znakami startu i stopu:" GridPane.rowIndex="1" />
+                  <TextField fx:id="StartStopTextField" prefHeight="25.0" prefWidth="237.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label text="Wynik odczytu:" GridPane.rowIndex="4" />
+                  <ImageView fx:id="imgResult" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="20.0" top="5.0" />
+                     </GridPane.margin>
+                  </ImageView>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </GridPane>
+         </center>
+      </BorderPane>
+   </center>
+</BorderPane>
